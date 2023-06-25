@@ -1,0 +1,27 @@
+**About primitive data types and implicit and explicit conversion**
+
+
+import java.io.*;
+
+class Lecture3
+{
+    public static void main(String args[])
+    {
+        int x=20;
+        int y=20;
+        System.out.println("x is :"+x);
+        System.out.println("y is :"+y);
+        
+        byte A = 127;
+        x =A; 
+        System.out.println("Upadted value of x is "+x);
+
+        byte B= (byte)y; //explicit conversion
+        System.out.println("B is :"+B);
+
+        byte C =(byte)130;
+        System.out.println(C);
+
+
+    }
+}
