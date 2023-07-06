@@ -1,0 +1,117 @@
+******************************InterfaceStudy*****************************
+
+import java.util.*;
+
+interface shape
+{
+    double pi=3.14; //the emethod is public static final by default
+    double getSquare(double r);//public abstarct
+    /*{
+        System.out.println("we can not fdefine it ");
+    }*/ 
+}
+
+class circle implements shape
+{
+    public double getSquare(double r)  //here we must have to defin method oterwise we have to
+                                      //declare class also as abstarct, nd we need to give mthd as public
+    {
+        return r*r;
+    }
+}
+
+
+public class InterfaceStudy {
+    public static void main(String args[])
+    {
+        //shape s1=new shape();// we can't create object of it so anything inside interface belong to interface only
+        //so it have only one copy
+
+        circle s1=new circle();
+        System.out.println(s1.getSquare(2.3));
+    }
+}
+
+
+
+
+
+
+*****************************************Multiple Ingheritence study***********************************
+
+interface A{
+    int x=20;
+    int w=90;
+    void fun();
+}
+
+interface B
+{
+    int x=10;
+    int z=833;
+    void fun();
+}
+
+class C implements A,B  //multiple inheritence is possible through interface because
+                        // when class inherit many interace more than 1  and all have 
+                        // a same  method name but we need to define tat method always 
+                        // so it never create problem as method is abstarct that is not defined
+                        //in parent.class and All other feature which are different are inherited to
+                        //the class C
+{
+    public  void fun()
+    {
+        System.out.println("hello i am in class c");
+    }
+}
+
+
+interface Q extends  A,B
+{
+    int d=29;
+    int x=45;
+    void fun();
+}
+
+
+class D implements A,B,Q
+{
+    public  void fun()
+    {
+
+        System.out.println("hello i am in class D and i have inherited  3 interface");
+        System.out.println(w+" "+z+" "+d);
+        //System.out.println(x);//it will show error ambiguity which one to call
+        //but as we know variables ar static in interface so
+        //we can call like this
+        System.out.println(A.x);
+        System.out.println(B.x);   //Ambiguity is resolved using fully qualified name
+        System.out.println(Q.x);
+    
+    }
+    
+}
+
+
+
+public class multipleInheritenceStudy {
+
+    public static void main(String args[])
+    {
+    C c1=new C();
+    c1.fun();
+
+    D d1=new D();
+    d1.fun();
+}}
+
+
+
+//in java everythig is done inside a class so by default there is an (object) class 
+//which is  topmost in heriarchy and all othe class which we create are
+//are internally extended from it
+
+//we can print it through----------->
+//System.out.println(M.super.hashCode());
+//M.super mean the object mean object of this class and hashcode menas object ofObject
+//class in which all code is 
