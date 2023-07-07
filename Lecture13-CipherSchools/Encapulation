@@ -1,0 +1,45 @@
+//package enacpsulationStudy;
+
+class Demo
+{
+    private int a=5;
+    private int b=15;
+    private int c=25;
+    private int d=35;
+
+
+    public int getA()
+    {
+        return this.a;
+    }
+
+
+    public int getB()
+    {
+        return this.b;
+    }
+}
+
+public class Encapulation 
+{
+    public static void main(String args[])
+    {
+        Demo d=new Demo();
+        //System.out.println(d.a); not visible bcz private
+        System.out.println(d.getA());
+        //now  we can access even private data
+        //similarly we can set with help of setter method 
+        //whenever we need to get or set the vales we need method so this give more cntrol
+        //similarly we cna apply cond. for getter and setter
+        //so this is what encapulation provides
+        //we cna also meke it read only and write only
+
+
+        //by encapulating it it easy to test once all
+    }
+}
+
+
+/*
+ 
+ */
