@@ -1,0 +1,56 @@
+//package accessModifiers1st;
+
+public class A {
+    int x=10; //default
+    private int y=15;
+    protected int z=29;
+    public int w=25;
+
+    public static void main(String args[])
+    {
+        A obj=new A();
+        System.out.println(obj.x);//default
+        System.out.println(obj.y); //private in same class
+        System.out.println(obj.z);//public
+    
+    
+    }
+}
+
+//*Default is also known as package private
+
+
+
+
+//package accessModifiers1st;
+
+public class B {
+    public static void main(String args[])
+    {
+    A obj =new A();
+    System.out.println(obj.x); //default variable x is accessible in the smae package
+    //System.out.println(obj.y);//private not accessible outside the class
+     System.out.println(obj.z); //public outside class
+
+
+
+}}
+
+
+
+
+//package accessModifiers2nd;
+
+
+import accessModifiers1st.A; //we need to import the class from the diff. package
+public class C extends A{
+    public static void main(String args[])
+    {
+        A obj=new A();
+        C obj1=new C();
+        //System.out.println(obj.x);//can't access default outside the 
+        System.out.println(obj.z);//public accessiible
+        System.out.println(obj.w);//pritected will be visible in different pckage and class
+        //just by using the object of that child class;
+    }   //A.w will not be visible
+}
