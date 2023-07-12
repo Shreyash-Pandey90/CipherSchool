@@ -1,0 +1,86 @@
+import java.util.*;
+
+public class string
+{
+  public static void main(String args[])  
+  {
+    // String s1="CipherSchools"; //creted using string literal so stored in method area
+    // String s2= "CipherSchools";
+
+
+    // String s3=new String("shreyash"); //creating using constructor
+    // String s4=new String("shreyash");
+
+
+    // System.out.println(s1==s2);//true
+    // System.out.println(s3==s4);//false bcz == operetor compare refrences
+
+    // System.out.println("using .equals()  "+s3.equals(s4)); //now true because now it compare value
+
+
+    // char arr[]={'A','m','a','n','9','7'};
+    // String str=new String(arr);
+    // System.out.print(str);
+
+    // System.out.println("*****************String Concatination****************");
+    // String d1="Hello";
+    // System.out.println(d1);
+    // d1=d1+" Sir";
+    // System.out.println(d1);
+
+    // //using the concat function
+
+    // String a= new String("First");
+    // String b=new String("Second");
+    // String c=a.concat(b); 
+    // System.out.println(c);
+
+
+    // //creating partial string from the character array
+    // String partial=new String(arr,1,4);
+    // System.out.println(partial);
+
+    // //Changing case
+    // System.out.println(partial.toUpperCase());
+
+    // //splitting
+    // String v="hello so this is splitting";
+    // String arr2[]=v.split(" ");
+
+    // for(int i=0;i<arr2.length;i++)
+    // {
+    //   System.out.println(arr2[i]);
+    // }
+
+
+    // System.out.println("******************** . splitting which is considered as meta char *************");
+    // String v1="hello.so.this.is splitting";
+    // //String arr3[]=v.split(".");//it will not do spiltting bcz it is considered as meat char regerx
+    // String arr3[]=v.split("[ . ]"); //thisi is how we are telling it explicitely
+    // //space btw . and square bracet is must
+    // //similar for the backslash;
+    // for(int i=0;i<arr3.length;i++)
+    // {
+    //   System.out.println(arr3[i]);
+    // }
+
+    String quote="hello.. \"Jai Shree Krishna\" "; // \backslash is used to print teh quotes
+    System.out.println(quote);
+
+
+    //Length of String
+
+    int len=quote.length();
+    System.out.println(len);
+
+
+    //finding index of character in a string
+
+    int index=quote.indexOf("J"); //it will print its first occurences and if not present it retirn -1;
+    System.out.println(index);
+    System.out.println(quote.indexOf("J",12));//it will start searching from index 12
+    //now if we want to print all the occurences we can use while loop
+  }
+
+}
+ 
