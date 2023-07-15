@@ -1,0 +1,25 @@
+//maximum sum of k size subarry using the sliding window
+
+
+class Solution{
+    static long maximumSumSubarray(int k, ArrayList<Integer> Arr,int n)
+    {
+        long max=0;
+        long sum=0;
+        for(int i=0;i<k;i++)
+        {
+            sum=sum+Arr.get(i);
+            
+        }
+        
+        max=sum;
+        
+        for(int i=0;i<n-k;i++)
+        {
+            sum=sum-Arr.get(i)+Arr.get(i+k);
+            max=Math.max(sum,max);
+            //if(max<sum)max=sum;
+        }
+        return max;
+    }
+}
