@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class recursion
+{
+    static void printN(int n)
+    {
+        System.out.println(n);
+        if(n>0)   // or ( n<1 return ) base condition of recurrsion
+        printN(n-1);
+    }
+
+
+    static int fib(int n)
+    {
+        if(n<2)return n; //for n=1 and n=0
+        int a=fib(n-1);
+        int b = fib(n-2);
+        return a+b;
+    }
+
+    public static void main(String args[])
+    {
+        //printN(10);
+        System.out.println(fib(5));
+    }
+
+
+    
+    
+}
