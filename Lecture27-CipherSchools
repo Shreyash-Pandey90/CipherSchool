@@ -1,0 +1,31 @@
+
+public class TwoPointer 
+{
+    public static int checkSum(int arr[],int req)
+    {
+        int sum=0;
+        int left=0; 
+        int right=arr.length-1;
+       while(!(left>=right))
+        {
+            sum=arr[left]+arr[right];
+            if(sum==req)
+            {
+                System.out.println(arr[left]+" + "+arr[right]+" = "+sum);
+                return 0;
+            }
+            else if(sum>req)right--;
+            else left++;
+        }
+        System.out.println("no number having sum : "+req);
+        return -1;
+    }
+
+    public static void main(String args[])
+    {
+        int arr[]= {1,4,9,22,98,56,33,65};
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        checkSum(arr,89);//this logic works  only for sorted array
+    }
+}
