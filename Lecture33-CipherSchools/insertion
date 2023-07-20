@@ -1,0 +1,76 @@
+// -------------------------Insertion in linkedlist---------------------------
+
+
+public static Node insertAtHead(Node head,int x)
+    {
+        Node temp =new Node(x);
+        temp.next=head;
+        return temp;
+    }
+
+
+    public static Node  insertAtEnd(Node head,int x)
+    {
+        Node temp=new Node(x);
+        if(head==null)return temp;
+        Node last=head;
+        while(last.next!=null)last=last.next;
+        last.next=temp;
+        return head;
+    }
+
+
+    public static Node insertAtKth(Node head,int x,int k)
+    {
+        Node temp=new Node(x);
+        if(k==0)
+        {
+            temp.next=head;
+            return temp;
+        }
+
+        Node pos=head;
+        for(int i=0;i<k-1;i++)
+        {
+            pos=pos.next;
+        }
+        temp.next=pos.next;
+        pos.next=temp;
+        return head;
+    }
+
+
+//                                              -----------------------------------DELETION-------------------------------------
+
+
+public static Node deleteHead(Node head)
+{
+    if(head==null)
+    {
+        System.out.println("Linkedllist is empty nothing to delete");
+        return null;
+    }
+    head=head.next;
+    return head;
+}
+
+
+public static Node  deleteTail(Node head)
+{
+    if(head==null)
+    {
+        System.out.println("empty LL");
+        return null;
+    }
+    else if(head.next==null)
+    {
+        return null;
+    }
+    Node temp=head;
+    while(temp.next.next!=null)
+    {
+        temp=temp.next;
+    }
+    temp.next=temp.next.next;
+    return head;
+}
