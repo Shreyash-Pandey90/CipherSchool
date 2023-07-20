@@ -1,0 +1,51 @@
+//                                              -----------------------------------DELETION IN LL-------------------------------------
+
+
+public static Node deleteHead(Node head)
+{
+    if(head==null)
+    {
+        System.out.println("Linkedllist is empty nothing to delete");
+        return null;
+    }
+    head=head.next;
+    return head;
+}
+
+
+public static Node  deleteTail(Node head)
+{
+    if(head==null)
+    {
+        System.out.println("empty LL");
+        return null;
+    }
+    else if(head.next==null)
+    {
+        return null;
+    }
+    Node temp=head;
+    while(temp.next.next!=null)
+    {
+        temp=temp.next;
+    }
+    temp.next=temp.next.next;
+    return head;
+}
+
+
+public static Node deleteAtKth(Node head,int k)
+{
+    if(head==null)
+    {
+        System.out.println("Nothing to delete");
+    }
+    else if(k==0)return head.next;
+    Node temp=head;
+    for(int i=0;i<k-1;i++)
+    {
+        temp=temp.next;
+    }
+    temp.next=temp.next.next;
+    return head;
+}
