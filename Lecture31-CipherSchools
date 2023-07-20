@@ -1,0 +1,53 @@
+class Node
+{
+    int data;
+    Node next; //act as refernce to the next coming node 
+
+    Node(int data)
+    {
+        this.data=data; //or data =x if we pass x as  parameter in constrructor
+        next=null;
+    }
+}
+
+
+public class lecture31 
+{
+
+    public static void print(Node head)
+    {
+        Node temp =head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+"--> ");
+            temp=temp.next;
+        }
+    }
+    public static void main(String args[])
+{
+
+    Node head=new  Node(2);
+    Node second =new Node(3);
+    Node third =new Node(4);
+    Node fourth =new Node(5);
+    head.next =second;
+    second.next=third;
+    third .next=fourth;
+   
+//     System.out.println(head);  
+//     System.out.println(head.next);  //Node@15db9742
+//     System.out.println(head.next.next); // Node@6d06d69c
+//     System.out.println(head.next.next.next); // Node@7852e922
+//    // System.out.println(head.next.next.next.next.next); null pointer
+
+    // System.out.println(head.data);  
+    // System.out.println(head.next.data);  //Node@15db9742
+    // System.out.println(head.next.next.data); // Node@6d06d69c
+    // System.out.println(head.next.next.next.data); // Node@7852e922
+    // ///System.out.println(head.next.next.next.next.next.data);
+
+    print(head);
+
+}
+    
+}
