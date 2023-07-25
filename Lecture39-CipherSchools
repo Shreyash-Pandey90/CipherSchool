@@ -1,1 +1,73 @@
+import java.util.*;
+
+class MyStack
+{
+    int size =10;
+    int arr[]=new int[10];
+    int top=-1;
+
+    public int top()
+    {
+        if(top==-1)
+        {
+            System.out.println("Stack is empty");
+            return -1;
+        }
+        else
+        return arr[top];
+    }
+
+
+    public void push(int data)
+    {
+        if(top!=size-1)
+        arr[++top]=data;
+        else
+        System.out.println("Stack is full");
+    }
+
+    public int pop()
+    {
+        if(top==-1)
+        {
+            System.out.println("Stack is empty");
+            return -1;
+        }
+        else
+        {
+        // int x =arr[top--];
+        // return x;
+        return arr[top--];
+
+        }
+        
+    }
+
+    public boolean isEmpty()
+    {
+        // if(top==-1)return true;
+        // else return false;
+
+        return top ==-1; //will directly  return either true or false
+    }
+}
+
+public class lecture39 
+{
+    public static void main(String rgs[])
+    {
+    MyStack stack1=new MyStack();
+    System.out.println(stack1.isEmpty());
+    System.out.println(stack1.top());
+    System.out.println(stack1.pop());
+    stack1.push(5);
+    stack1.push(6);
+    stack1.push(8);
+    System.out.println(stack1.isEmpty());
+    System.out.println(stack1.top());
+    System.out.println(stack1.pop());
+    System.out.println(stack1.top());
+
+    }
+}
 
