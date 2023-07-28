@@ -1,1 +1,82 @@
+class Solution
+{
+    //Function to evaluate a postfix expression.
+    public static int evaluatePostFix(String S)
+    {
 
+//------------------------------------------Trying another approach-------------------------------------------
+    //     Stack<String>stack=new Stack<>();
+    //     for(int i=0;i<S.length();i++)
+    //     {
+    //         //String c=(String)S.charAt(i); we can't directly cast it in to string
+    //         // we can do it either by concatinating it with empty string or we can use
+    //         //Character.toString(char a);
+            
+    //         char x=S.charAt(i);
+    //         String c=Character.toString(x);
+            
+    //         if(c=="*" || c=="/" || c=="+" || c=="-")
+    //         {
+    //             int a=Integer.parseInt(stack.pop());
+    //             int b=Integer.parseInt(stack.pop());
+    //             if(c.equals("*"))
+    //             {
+    //                 int d=a*b;
+    //                 stack.push(String.valueOf(d));
+    //             }
+    //             if(c.equals("/"))
+    //             {
+    //                 int d=a/b;
+    //               stack.push(String.valueOf(d));
+    //             }
+    //             if(c.equals("+"))
+    //             {
+    //                 int d=a+b;
+    //                 stack.push(String.valueOf(d));
+    //             }
+    //             if(c.equals("-"))
+    //             {
+    //                 int d=a-b;
+    //                 stack.push(String.valueOf(d));
+    //             }
+                
+    //         }
+    //         else
+    //         stack.push(c);
+    //     }
+    //     int d=Integer.parseInt(stack.peek());
+    //     return d
+//------------------------------------------------------------------Approach end---------------------------------------------------------
+    
+        Stack<Integer>stack=new Stack<>();
+        for(int i=0;i<S.length();i++)
+        {
+            char c=S.charAt(i);
+            if(c=='*')
+            {
+               int a=stack.pop(); 
+               stack.push(stack.pop()*a);
+            }
+            else if(c=='/')
+            {
+               int a=stack.pop(); 
+               stack.push(stack.pop()/a);
+            }
+            else if(c=='+')
+            {
+               int a=stack.pop();
+               stack.push(stack.pop()+a);
+            }
+            else if(c=='-')
+            {
+               int a=stack.pop();
+               stack.push(stack.pop()-a);
+            }
+            else
+            {
+                stack.push(c-'0');
+            }
+        }
+        return stack.pop();
+    }
+}
