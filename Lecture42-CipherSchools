@@ -1,1 +1,149 @@
-hello this is lect 42
+public class Lecture42 
+{
+    public  static void main(String args[])
+    {
+        //queue s1=new queue();
+        CircularQueue s1=new CircularQueue() ;
+
+        System.out.println(s1.isEmpty());
+        s1.dequeue();
+        s1.enqueue(5);
+        s1.enqueue(6);
+        s1.enqueue(7);
+        System.out.println(s1.peek());
+         s1.dequeue();
+         System.out.println(s1.peek());
+         s1.dequeue();
+         System.out.println(s1.peek());
+        s1.enqueue(9);
+        s1.enqueue(10);
+        s1.enqueue(11);
+        s1.dequeue();
+         System.out.println(s1.peek());
+         s1.dequeue();
+        System.out.println(s1.peek());
+        s1.enqueue(12);
+        s1.enqueue(13);
+        s1.enqueue(14);
+        //s1.enqueue(15);
+        // s1.enqueue(10);
+        // s1.enqueue(11);
+    }
+}
+// ---------------------------------------------------------------------------------------------------
+class queue 
+{
+    static int arr[]=new int[10];
+    static int front= -1,rear=-1;
+
+    static void enqueue(int x)
+    {
+        if(rear==9)System.out.println("queue is full");
+        else if(front==-1 && rear==-1)
+        {
+            front++;
+            arr[++rear]=x;
+        }
+        else
+        arr[++rear]=x;
+    }
+
+    static int  dequeue()
+    {
+        if(front==-1)
+        {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        else if(front==rear)
+        {
+            int x=arr[front];
+            front=-1;
+            rear=-1;
+            return x;
+        }
+        else
+        {
+            return arr[front++];
+        }
+    }
+
+
+    static int peek()
+    {
+        if(front==-1)
+        {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        else
+        return arr[front];
+    }
+
+    static boolean isEmpty()
+    {
+        if(front==-1 && rear==-1)return true;
+        else return false;
+    }
+}
+
+// ---------------------------------------------------------------------------------------------------
+class CircularQueue
+{
+   static int arr2[]=new int[5];
+   static  int front=-1,rear=-1;
+
+    static void enqueue(int x)
+    {
+        if(rear==front-1)System.out.println("Queue is full");
+        else if(front==-1 && rear==-1)
+        {
+            front = (front+1)%5;
+            rear=(rear+1)%5;
+            arr2[rear]=x;
+        }
+        else
+        rear=(rear+1)%5;
+        arr2[rear]=x;
+    }
+
+    static int  dequeue()
+    {
+        if(front==-1)
+        {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        else if(front==rear)
+        {
+            int x=arr2[front];
+            front=-1;
+            rear=-1;
+            return x;
+        }
+        else
+        {
+            front=(front+1)%5;
+            return arr2[front];
+        }
+    }
+
+
+    static int peek()
+    {
+        if(front==-1)
+        {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        else
+        return arr2[front];
+    }
+
+    static boolean isEmpty()
+    {
+        if(front==-1 && rear==-1)return true;
+        else return false;
+    }
+}
+
