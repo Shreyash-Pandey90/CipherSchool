@@ -1,0 +1,69 @@
+//                               ----------Approach 1 making enqueue costly----------
+
+class Queue
+{
+    Stack<Integer> s1= new Stack<Integer>(); 
+    Stack<Integer> s2 = new Stack<Integer>(); 
+    
+    /*The method pop which return the element poped out of the stack*/
+    int dequeue()
+    {
+	    if(s1.isEmpty())return -1;
+	    else
+	    return s1.pop();
+    }
+	
+    /* The method push to push element into the stack */
+    void enqueue(int x)
+    {
+	    while(!s1.isEmpty())
+	    {
+	        s2.push(s1.pop());
+	    }
+	    s1.push(x);
+	    
+	    while(!s2.isEmpty())
+	    {
+	        s1.push(s2.pop());
+	    }
+    }
+}
+
+
+//                                      -----Making the Dequeue costly----
+
+class Queue
+{
+    Stack<Integer> s1 = new Stack<Integer>(); 
+    Stack<Integer> s2 = new Stack<Integer>(); 
+    
+    /*The method pop which return the element poped out of the stack*/
+    int dequeue()
+    {
+       if(s1.isEmpty())return -1;
+       else
+       {
+	   while(!s1.isEmpty())
+	   {
+	       s2.push(s1.pop());
+	   }
+	   int x=s2.pop();
+	   while(!s2.isEmpty())
+	   {
+	       s1.push(s2.pop());
+	   }
+	   return x;
+       }
+    }
+	
+    /* The method push to push element into the stack */
+    void enqueue(int x)
+    {
+	    s1.push(x);	
+    }
+}
+
+
+//                            --------using single stack------------
+
+//we can not implement using single stack but we can do it using the recurrsion
