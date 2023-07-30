@@ -1,0 +1,93 @@
+// -------------------------------Approach:1  making pop() costly----------------------------------------
+
+class Queues
+{
+    Queue<Integer> q1 = new LinkedList<Integer>();
+    Queue<Integer> q2 = new LinkedList<Integer>();
+    
+    //Function to push an element into stack using two queues.
+    void push(int a)
+    {
+	    q1.add(a);	
+    }
+    
+    //Function to pop an element from stack using two queues. 
+    int pop()
+    {
+	    if(q1.isEmpty())return -1;
+	    else
+	    {
+	        while(q1.size()!=1)
+	        {
+	            q2.add(q1.poll());
+	        }
+	    }
+	    while(!q2.isEmpty())
+	    {
+	        q1.add(q2.poll());
+	    }
+	    return q1.poll();
+    }
+	
+}
+
+
+// ---------------------------------------------------Approach 2 Making push costly---------------------------------------------------
+
+class Queues
+{
+    Queue<Integer> q1 = new LinkedList<Integer>();
+    Queue<Integer> q2 = new LinkedList<Integer>();
+    
+    //Function to push an element into stack using two queues.
+    void push(int a)
+    {
+        while(!q1.isEmpty())
+        {
+            q2.add(q1.poll());
+        }
+	    q1.add(a);
+	    
+	    while(!q2.isEmpty())
+	    {
+	        q1.add(q2.poll());
+	    }
+    }
+    
+    //Function to pop an element from stack using two queues. 
+    int pop()
+    {
+       if(q1.isEmpty())return -1;
+       else
+	   return q1.poll();
+    }
+	
+}
+
+// -----------------------------------------------------Approach 3 Stack using single queue----------------------------------------------
+
+class Queues
+{
+    Queue<Integer> q1 = new LinkedList<Integer>();
+
+    
+    //Function to push an element into stack using two queues.
+    void push(int a)
+    {
+       int k=0;
+       q1.add(a);
+	   while(k!=q1.size()-1)
+	   {
+	       q1.add(q1.poll());
+	       k++;
+	   }
+    }
+    
+    //Function to pop an element from stack using two queues. 
+    int pop()
+    {
+	    if(q1.isEmpty())return-1;
+	    else
+	    return q1.poll();
+    }
+}
