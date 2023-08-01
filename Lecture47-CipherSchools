@@ -1,0 +1,41 @@
+//               ------------------Print leaf nodes------------------
+
+public static int countLeaf(Node root)
+    {
+        if(root==null)return 0;
+        if(root.right==null && root.right ==null)return 1;;
+        return countLeaf(root.left)+countLeaf(root.right);
+        
+    }
+
+
+//               ------------------Print Nodes Level wise------------------
+
+  public static void printLevelHelp(Node root,int level)
+    {
+        if(root==null)return;
+        if(level==0)
+        {
+        System.out.print(root.data+" ");
+        return;
+        }
+        printLevelHelp(root.left,level-1);
+        printLevelHelp(root.right,level-1);  
+    }
+
+    public static void printLevel(Node root,int level)
+    {
+        printLevelHelp(root,level);
+        System.out.println("");
+    }
+
+
+
+//               ---------Print no of nodes---------
+
+
+public static int height(Node root)
+    {
+        if(root==null)return -1;
+        return 1+Math.max(height(root.left),height(root.right));
+    }
