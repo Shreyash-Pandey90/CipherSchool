@@ -1,0 +1,47 @@
+
+
+public class Lecture46
+{
+    
+   public static void main(String args[])
+   {
+    Node root= new Node(2);
+    root.left=new Node(3);
+    root.right=new Node(5);
+    root.left.left=new Node(9);
+    root.right.left=new Node(7);
+    System.out.println("sum of tree is "+treeSum(root));
+    System.out.println("No of node  is "+noNode(root));
+   }
+
+   public static int treeSum(Node root)
+   {
+    //while(root!=null)   //can do either by if else or while 
+    //but using the while loop in not efficient in case of recursive calls
+    
+        if(root==null)return 0;
+        return root.data+treeSum(root.left)+treeSum(root.right);
+   }
+
+   public static int noNode(Node root)
+   {
+    if(root==null)return 0;
+    return 1+noNode(root.left)+noNode(root.right);
+   }
+
+}
+class Node
+{
+    int data;
+    Node left;
+    Node right;
+    
+    Node(int x)
+    {
+        data=x;
+        left=null;
+        right=null;
+    }
+}
+
+
