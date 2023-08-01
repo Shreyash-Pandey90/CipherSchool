@@ -1,0 +1,47 @@
+//            --------Traversal---------
+
+//Instead of checking multiple times null condition we can also do like if root is null the retrn
+
+    public static void inorder(Node root)
+    {
+        if(root.left!=null)
+        inorder(root.left);
+        if(root!=null)System.out.print(root.data+" ");
+        if(root.right!=null)
+        inorder(root.right);
+    }
+
+    public static void postorder(Node root)
+    {
+        if(root.right!=null)
+        postorder(root.right);
+        if(root.left!=null)
+        postorder(root.left);
+        if(root!=null)System.out.print(root.data+" ");
+
+    }
+
+    public static void preorder(Node root)
+    {
+        if(root!=null)System.out.print(root.data+" ");
+        if(root.left!=null)
+        preorder(root.left);
+        if(root.right!=null)
+        preorder(root.right);
+    }
+
+}
+
+//                   -------Is Identical or not--------
+
+class Solution
+{
+    //Function to check if two trees are identical.
+	boolean isIdentical(Node root1, Node root2)
+	{
+	   if(root1==null && root2==null)return true;
+	   if(root1 ==null || root2==null)return false;
+	   return root1.data==root2.data && isIdentical(root1.left,root2.left) && isIdentical(root1.right ,root2.right);
+	}
+	
+}
