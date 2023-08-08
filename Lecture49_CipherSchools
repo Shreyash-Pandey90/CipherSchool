@@ -1,1 +1,80 @@
-this is lecture 49
+//        -----------Height of the tree--------------
+
+
+class Solution {
+    //Function to find the height of a binary tree.
+    int height(Node node) 
+    {
+        Node temp=node;
+        if(temp==null)return 0;
+        int leftH = height(temp.left);
+        int rightH= height(temp.right);
+        
+        if(leftH > rightH)return leftH+1;
+        else return rightH+1;
+    }
+}
+
+
+//        --------- check if it is mirror of the tree----------
+
+
+class Solution {
+    boolean areMirror(Node a, Node b) {
+        if(a==null && b==null)return true;
+        else if(a==null || b==null)return false;
+        else
+        {
+            return a.data==b.data && (areMirror(a.left,b.right) && areMirror(a.right,b.left));
+        }
+    }
+}
+
+
+
+//        ------------ converting tree into mirror of tree------------
+
+class Solution {
+    // Function to convert a binary tree into its mirror tree.
+    void mirror(Node node) 
+    {
+    if(node==null)return;
+    Node point1=null;
+    Node point2=null;
+    if(node.left!=null)
+   {
+    point1=node.left;
+    node.left=null;
+   }
+    
+    if(node.right!=null)
+    {
+    point2=node.right;
+    node.right=null;
+    }
+    
+    if(point2!=null)
+    node.left=point2;
+    if(point1!=null)
+    node.right=point1;
+    
+    mirror(node.left);
+    mirror(node.right);
+    }
+}
+
+
+//            ------------Determine if Two Trees are Identical-----------
+
+
+class Solution
+{
+    //Function to check if two trees are identical.
+	boolean isIdentical(Node root1, Node root2)
+	{
+	   if(root1==null && root2==null)return true;
+	   if(root1 ==null || root2==null)return false;
+	   return root1.data==root2.data && isIdentical(root1.left,root2.left) && isIdentical(root1.right ,root2.right);
+	}
+	
+}
