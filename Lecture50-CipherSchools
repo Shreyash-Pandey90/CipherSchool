@@ -1,0 +1,20 @@
+//          -------- Itterative approach BFS------
+
+class Solution
+{
+    //Function to return the level order traversal of a tree.
+    static ArrayList <Integer> levelOrder(Node node) 
+    {
+        ArrayList<Integer> a=new ArrayList<>();
+        Queue <Node> q=new LinkedList<>();
+        q.add(node);
+        while(!q.isEmpty())
+        {
+            Node b=q.poll();
+            a.add(b.data);
+            if(b.left!=null)q.add(b.left);
+            if(b.right!=null)q.add(b.right);
+        }
+        return a;
+    }
+}
