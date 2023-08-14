@@ -1,0 +1,56 @@
+import java.util.*;
+
+public class lecture52
+{
+    public static void main(String args[])
+    {
+        Set<Integer> s=new HashSet<>();
+        // if we impelement it with the LinkedHasSet then it is ordered Set but even then we can not access it through index
+        System.out.println(s.isEmpty());
+        s.add(20);
+        s.add(50);
+        s.add(45);
+        for(int a:s)System.out.print(a+" ");
+        System.out.println();
+        System.out.println(s.isEmpty());
+        System.out.println(s.contains(45));
+        System.out.println("size "+s.size());
+
+        // trying to add duplicate elements in the set
+
+        s.add(45);
+
+        //now let see if elements added then size will automatically increase
+        System.out.println("size "+s.size());
+        s.remove(45);
+        System.out.println("size "+s.size());
+        System.out.println(s.contains(45));
+        System.out.println(s.isEmpty());
+        s.clear();
+        System.out.println(s.isEmpty());
+
+ 
+    }
+}
+
+/*
+ * SET
+ list which does not allow duplictae and it does not have 
+ any oreder ws o we can not acees any elament with the index
+ SET is interface in java
+we implement it using the HasSet class
+HasSet is in the util package
+ 
+METHODS IN THE SETS ARE------------>
+
+1] add(ele) add the element in the set
+2] clear()  remove all the elements from the has
+3] contains(ele) return true or flase whether element       ispresent in my has or not
+4] isEmpty() return treue if my set is empty else it will return false
+
+5] remove(ele) remove the specific element form the set
+6] size()   returns the no. of elements in the set
+
+
+it will not add duplicate elements but it will aslo not give any error
+  */
