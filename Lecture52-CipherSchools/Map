@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class lecture52MAP 
+{
+    public static void main(String args[])
+    {
+        Map<String,Integer> a=new HashMap<>();
+        a.put("1st",20);
+        a.put("2nd",10);
+        a.put("3rd",2);
+        a.put("4th",98);
+        a.put("5th",76);
+
+        System.out.println(a.get("3rd"));
+        System.out.println(a.get("4th"));
+        a.remove("4th");
+        System.out.println(a.get("4th"));
+       
+        System.out.println(a.keySet());
+        System.out.println(a.entrySet());
+
+        System.out.println(a.containsKey("8th"));
+
+    }
+}
+
+/*
+ * Map is the set of keys and the value associated with it
+ * Map is an interace
+ * it is implementded with the HasSet class
+ * 
+ * Duplicate keys doesn't make any sense although we can have if we want it will update the value at that key with new value
+ * 
+ * Methods in the map are------>
+ * 
+ * 1] put(key,value)
+ * 2] putAll(any map)
+ * 3] remove(key)
+ * 4] get(key)
+ * 5] containsKey()
+ * 6] entrySet()
+ * 7] keySet()
+ */
