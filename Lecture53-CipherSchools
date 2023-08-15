@@ -1,0 +1,146 @@
+class Tree
+{
+    int data;
+    Tree left;
+    Tree right;
+    Tree(int x)
+    {
+        data=x;
+        left=null;
+        right=null;
+    }
+}
+
+
+
+public class Lecture53 
+{
+    
+    public static Tree BSTsearch(Tree root,int x)
+    {
+        if(root==null)return null;
+        else
+        {
+        if(root.data==x)return root;
+        else if(root.data<x)
+        {
+        return BSTsearch(root.right,x);
+        }
+        else
+        return BSTsearch(root.left,x);
+        }
+    }
+
+
+    public static void preorder(Tree root)
+    {
+        
+        if(root!=null)
+        {
+            System.out.print(root.data+" ");
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+
+
+    public static int min(Tree root)
+        {
+            while(root.left!=null)
+            {
+                root=root.left;
+            }
+            return root.data;
+
+        }
+
+
+    //-----------fxn to delete any node from tree----------
+
+
+    //either pick max from the left sub tree or pick min from the right sub tree to replace the node
+    //with two child which want tot be deleted, but convention is to pick min from right subtree
+
+    //0 child case is hnadeled within the 1 child case 
+
+    public static Tree delete(Tree root,int x)
+    {
+        if(root==null)return null;
+        else if(root.data>x)
+            root.left=delete(root.left,x);
+        else if(root.data<x)
+            root.right=delete(root.right,x);
+        else
+        {
+            if(root.left==null)return root.right;
+            if(root.right==null)return root.left;
+            else
+            {
+                root.data=min(root.right);
+                root.right=delete(root.right,root.data);
+            }
+        }
+        return root;
+        
+    }
+
+
+    //    -----Least common ancestor-----
+
+ 
+    //Function to return the lowest common ancestor in a Binary Tree.
+	Tree lca(Tree root, int n1,int n2)
+	{
+		if(root==null)return null;
+		if(root.data==n1 || root.data==n2)return root;
+		
+		Tree Lca=lca(root.left,n1,n2);
+		Tree Rca=lca(root.right,n1,n2);
+		
+		if(Lca!=null && Rca!=null)return root;
+		else if(Lca!=null && Rca==null)return Lca;
+		else if(Lca==null && Rca!=null)return Rca;
+		else
+		return null;
+	}
+
+
+  
+    //Function to find the lowest common ancestor in a BST. 
+	Node LCA(Node root, int n1, int n2)
+	{
+        if(root==null)return null;
+        else if(root.data==n1 || root.data==n2)return root;
+        else if(n1<root.data && n2>root.data  || n1>root.data && n2<root.data)return root;
+        else if(n1<root.data && n2<root.data)return LCA(root.left,n1,n2);
+        else if(n1>root.data && n2>root.data)return LCA(root.right,n1,n2);
+        else return null;
+    }
+    
+
+
+    public static void main(String args[])
+    {
+    Tree root=new Tree(10);
+        root.left=new Tree(5);
+        root.right=new Tree(15);
+        root.left.left=new Tree(4);
+        root.left.right=new Tree(6);
+        root.right.left=new Tree(14);
+        root.right.right=new Tree(25);
+
+
+        preorder(root);
+        System.out.println(BSTsearch(root,4));
+        root= delete(root,4);
+        System.out.println(BSTsearch(root,4));
+        System.out.println(BSTsearch(root,15));
+        preorder(root);
+        root= delete(root,15);
+        System.out.println(BSTsearch(root,15));
+        preorder(root);
+        root= delete(root,5);
+        System.out.println(BSTsearch(root,5));
+         preorder(root);
+    }
+}
