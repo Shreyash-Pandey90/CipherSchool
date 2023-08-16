@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Lecture54
+{
+    public static void main(String args[])
+    {
+        PriorityQueue<Integer> a= new PriorityQueue<>();
+        //by default it is my min-heap
+        /*
+         *To convert it in to the max heap we can use---------->
+         We use PriorityQueue class to implement Heaps in Java. By default Min Heap is implemented by this class. To implement Max Heap, we use Collections.reverseOrder() method
+         */
+        System.out.println(a.isEmpty());
+        a.add(5);
+        a.add(20);
+        a.add(3);
+        a.add(9);
+        a.add(2);
+        a.add(8);
+
+        System.out.println("Highest priority element is "+a.peek());
+        System.out.println(a.isEmpty());
+        System.out.println(a.size());
+        System.out.println("Highest proprity leement is removed : "+a.remove());
+        System.out.println(" Now Highest priority element is "+a.peek());
+    }
+}
