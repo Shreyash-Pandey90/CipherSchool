@@ -1,0 +1,77 @@
+import java.util.*;
+
+class graph
+{
+    //int arr[]=new int[];
+    int Vertices;
+    //or int v;
+    LinkedList<Integer> arr[];// =new LinkedList[size];
+
+    graph(int v)
+    {
+        Vertices=v;
+        //then this.v=v;
+        arr= new LinkedList[v];
+        for(int i=0;i<v;i++)
+        {
+            arr[i]=new LinkedList<>();
+        }
+    }
+
+    void addEdge(int start,int end)
+    {
+        arr[start].add(end);// adding at start vertex it's neighbour here  start is source and end is destination
+        //arr[end].add(start); if our grap is bidirectional
+    }
+
+    void print()
+    {
+        for(int i=0;i<Vertices;i++)
+        {
+            System.out.print("Node "+i+" Neighbours are: ");
+            for(int x:arr[i])
+            {
+                System.out.print(x+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+public class Lecture58 
+{
+    public static void main(String[] args)
+    {
+        graph a=new graph(5);
+        a.addEdge(0,1);
+        a.addEdge(0,2);
+        a.addEdge(0,3);
+        a.addEdge(1,3);
+        a.addEdge(3,4);
+        a.addEdge(2,4);
+
+        a.print();
+    }
+}
+
+/*
+ * Adjancy matrix representation is beneficial if we have very less no of nodes
+ * or if we have very dense graph otherwise as it space complexity become O(v^2) which is not practical for sparse grph or grph with large no of nodes
+ * Adhecent matrix is represented using the Matrix of array
+ * 
+ * howeever Adjacency list is represented using jagged array that's why in terms of space adjacency list is much efficient 
+ * for finding all no of all connection adjacency list is faster thata djaceny matrix but for finding the 
+ one to one connection adjacent matrix is fast but it won't effect much so
+ OVERALL CONCLUSION IS THAT ADJACENCY LIST IS MUCH EFFICIENT AS COMPARED TO THE ADJACENCY MATRIX
+
+ Adjaceny list representation throough Array of LinkedList will be much efficient than with the array bcz then we can increase the size easily
+ Here we wil sotre linkedlis root at each array indexand then in that linkedlist we can increase or decraese conn as per our choice
+
+ Implementation of the Adjacency List with MAP and SET is more convinient
+ 
+ bcz in this case now we can increase the total person and connection 
+ within i these total but with we can't increase total person
+ only we can increase the no of conn within these persons
+
+ */
